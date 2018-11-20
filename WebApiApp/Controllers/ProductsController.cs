@@ -18,7 +18,7 @@ namespace WebApiApp.Controllers
         }
 
         // GET: api/Products/5
-        [HttpGet, Route("{id}")]
+        [HttpGet, Route("{id:int:range(1000,3000)}")]
         public string Get(int id)
         {
             return "value";
@@ -31,7 +31,7 @@ namespace WebApiApp.Controllers
             return "product-orders " + custid;
         }
 
-        // POST: api/products/
+        // POST: api/products/        
         [HttpPost, Route("")]
         public void CreateProduct([FromBody]string value)
         {
@@ -39,14 +39,15 @@ namespace WebApiApp.Controllers
 
         // PUT: api/Products/5
         [HttpPut, Route("id")]
-        public void Put(int id, [FromBody]string value)
+        public void UpdateProducts(int id, [FromBody]string value)
         {
         }
 
         // DELETE: api/Products/5
         [HttpDelete, Route("id")]
-        public void Delete(int id)
+        public void RemoveProducts(int id)
         {
         }
+        
     }
 }
